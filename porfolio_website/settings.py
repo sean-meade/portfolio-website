@@ -14,10 +14,10 @@ DEPLOYED = os.environ.get('DEPLOYED')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if bool(DEPLOYED) == True:
-    DEBUG = False
-else:
-    DEBUG = True
+# if bool(DEPLOYED) == True:
+DEBUG = False
+# else:
+#     DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -78,21 +78,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'porfolio_website.wsgi.application'
 
-if bool(DEPLOYED):
-    DATABASES = {
-        'default': dj_database_url.config(
-            # Replace this value with your local database's connection string.
-            default=DATABASE_URL,
-            conn_max_age=600
-        )
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+# if bool(DEPLOYED):
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default=DATABASE_URL,
+        conn_max_age=600
+    )
+}
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -132,21 +132,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-if bool(DEPLOYED):
+# if bool(DEPLOYED):
 
-    STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-    MEDIA_URL = 'media/'
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = 'media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-else:
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# else:
+#     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#     STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+#     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+#     MEDIA_URL = '/media/'
+#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
