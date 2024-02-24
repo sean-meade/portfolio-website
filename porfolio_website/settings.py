@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    # Cloudinary related apps
     'cloudinary_storage',
     'cloudinary',
+
+    # Project apps
+    'portfolio',
 ]
 
 MIDDLEWARE = [
