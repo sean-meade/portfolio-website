@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
+{% load cloudinary %}
 
 {% block content %}
 
 Projects
+
+{% for project in projects %}
+
+<p>{{ project.name }}</p>
+<p>{{ project.website }}</p>
+<p>{{ project.github }}</p>
+<p>{{ project.description }}</p>
+<img src="{{ project.image.url }}"/>
+
+{% endfor %}
 
 {% endblock %}
