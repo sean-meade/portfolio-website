@@ -10,6 +10,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 DEPLOYED = os.environ.get('DEPLOYED')
 
+print("DATABASE_URL: ", DATABASE_URL)
+print("SECRET_KEY: ", SECRET_KEY)
+print("CLOUDINARY_URL: ", CLOUDINARY_URL)
+print("DEPLOYED: ", DEPLOYED)
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
     'API_KEY': os.environ.get('API_KEY'),
