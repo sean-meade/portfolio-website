@@ -32,6 +32,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = []
 
+print("Start!")
+
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
 if RENDER_EXTERNAL_HOSTNAME:
@@ -40,6 +42,8 @@ if RENDER_EXTERNAL_HOSTNAME:
 SITE_ID = 1
 
 # Application definition
+
+print("Part 1")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -69,6 +73,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+print("part 2")
+
 ROOT_URLCONF = 'porfolio_website.urls'
 
 TEMPLATES = [
@@ -87,6 +93,8 @@ TEMPLATES = [
     },
 ]
 
+print("part 3!")
+
 WSGI_APPLICATION = 'porfolio_website.wsgi.application'
 
 # if bool(DEPLOYED):
@@ -104,6 +112,8 @@ DATABASES = {
 #             'NAME': BASE_DIR / 'db.sqlite3',
 #         }
 #     }
+
+print("part 4")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -141,16 +151,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+print("part 5")
+
 STATIC_URL = '/static/'
 
 # if bool(DEPLOYED):
 
+print("part 6")
+
 STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+print("part 7")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+print("part 8")
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+print("part 9")
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+print("part 10")
 # else:
 #     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 #     STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
@@ -162,3 +179,4 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+print("part 11")
