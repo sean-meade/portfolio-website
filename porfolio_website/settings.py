@@ -14,14 +14,10 @@ DEPLOYED = os.environ.get('DEPLOYED')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if DEPLOYED == True:
+if bool(DEPLOYED) == True:
     DEBUG = False
 else:
     DEBUG = True
-
-print("DEBUG = ", DEBUG)
-
-DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -82,7 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'porfolio_website.wsgi.application'
 
-if DEPLOYED:
+if bool(DEPLOYED):
     DATABASES = {
         'default': dj_database_url.config(
             # Replace this value with your local database's connection string.
@@ -136,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-if DEPLOYED:
+if bool(DEPLOYED):
 
     STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
     STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
