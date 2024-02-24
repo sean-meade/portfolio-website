@@ -10,10 +10,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 DEPLOYED = os.environ.get('DEPLOYED')
 
-print("DATABASE_URL: ", DATABASE_URL)
-print("SECRET_KEY: ", SECRET_KEY)
-print("CLOUDINARY_URL: ", CLOUDINARY_URL)
-print("DEPLOYED: ", DEPLOYED)
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
@@ -25,14 +21,12 @@ CLOUDINARY_STORAGE = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if bool(DEPLOYED) == True:
-DEBUG = False
-# else:
-#     DEBUG = True
+if bool(DEPLOYED) == True:
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = []
-
-print("Start!")
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
@@ -43,8 +37,6 @@ SITE_ID = 1
 
 # Application definition
 
-print("Part 1")
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,11 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-
-    # Cloudinary related apps
     'cloudinary_storage',
     'cloudinary',
+    'django.contrib.sites',
 
     # Project apps
     'projects',
@@ -73,14 +63,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-print("part 2")
-
 ROOT_URLCONF = 'porfolio_website.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,27 +81,20 @@ TEMPLATES = [
     },
 ]
 
-print("part 3!")
-
 WSGI_APPLICATION = 'porfolio_website.wsgi.application'
 
-# if bool(DEPLOYED):
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default=DATABASE_URL,
-        conn_max_age=600
-    )
-}
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
+if bool(DEPLOYED):
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
-print("part 4")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -151,29 +132,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-print("part 5")
 
 STATIC_URL = '/static/'
 
-# if bool(DEPLOYED):
+if bool(DEPLOYED):
 
-print("part 6")
-
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-print("part 7")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-print("part 8")
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-print("part 9")
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-print("part 10")
-# else:
-#     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-#     STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-#     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-#     MEDIA_URL = '/media/'
-#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    MEDIA_URL = '/media/'
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
