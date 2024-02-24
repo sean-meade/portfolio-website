@@ -8,13 +8,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASE_URL = os.environ.get('DATABASE_URL')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-DEPLOYED = bool(os.environ.get('DEPLOYED'))
+DEPLOYED = os.environ.get('DEPLOYED')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if DEPLOYED:
+if DEPLOYED == True:
     DEBUG = False
 else:
     DEBUG = True
