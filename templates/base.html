@@ -1,0 +1,73 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    {% block head %}
+    <!-- Add the Bootstrap CSS and JavaScript files -->
+    {% endblock %}
+    
+    {% block meta %}
+    <!-- Required meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% comment %} TODO: Add these {% endcomment %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% endblock %}
+
+    {% block extra_meta %}
+
+    {% endblock %}
+
+    {% block favicon %}
+
+    {% endblock %}
+
+    {% block corecss %}
+    
+    
+    {% endblock %}
+
+    {% block extra_css %}
+    
+    {% endblock %}
+
+    {% block corejs %}
+
+    {% endblock %}
+
+    {% block extra_js %}
+
+
+    {% endblock %}
+
+    <title>Sean Meade</title>
+</head>
+
+
+<body>
+
+    <header>
+        {% include 'header.html' %}
+        
+    </header>
+   
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}    
+    
+    {% block extra_js_footer %}
+
+    {% endblock %}
+</body>
+
+</html>

@@ -20,5 +20,5 @@ class Tag(models.Model):
 
 
 class ProjectTag(models.Model):
-    project_id = models.ForeignKey(Project)
-    tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    project_id = models.ForeignKey(Project, on_delete=models.PROTECT)
+    tag_id = models.ForeignKey(Tag, on_delete=models.PROTECT)

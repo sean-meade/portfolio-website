@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'cloudinary',
 
     # Project apps
-    'portfolio',
+    'projects',
 ]
 
 MIDDLEWARE = [
