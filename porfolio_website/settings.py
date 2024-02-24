@@ -10,6 +10,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 DEPLOYED = os.environ.get('DEPLOYED')
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('API_KEY'),
+    'API_SECRET': os.environ.get('API_SECRET')
+}
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -138,7 +144,7 @@ STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # else:
