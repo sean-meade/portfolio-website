@@ -1,18 +1,38 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load cloudinary %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+{% endblock %}
 
 {% block content %}
 
 Projects
 
+<div id="card-container">
+
+{% if projects %}
+
 {% for project in projects %}
 
-<p>{{ project.name }}</p>
+{% include 'project-card.html' with project=project %}
+
+
+{% comment %} <p>{{ project.name }}</p>
 <p>{{ project.website }}</p>
 <p>{{ project.github }}</p>
 <p>{{ project.description }}</p>
-<img src="{{ project.image.url }}"/>
+<img src="{{ project.image.url }}"/> {% endcomment %}
 
 {% endfor %}
+
+{% else %}
+
+<p>No Projects to display</p>
+
+{% endif %}
+
+</div>
 
 {% endblock %}

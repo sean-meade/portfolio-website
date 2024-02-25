@@ -11,17 +11,11 @@ CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 DEPLOYED = os.environ.get('DEPLOYED')
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
-    'API_KEY': os.environ.get('API_KEY'),
-    'API_SECRET': os.environ.get('API_SECRET')
-}
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if bool(DEPLOYED) == True:
+if DEPLOYED == 'True':
     DEBUG = False
 else:
     DEBUG = True
@@ -83,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'porfolio_website.wsgi.application'
 
-if bool(DEPLOYED):
+if DEPLOYED == 'True':
     DATABASES = {
         'default': dj_database_url.parse(DATABASE_URL)
     }
@@ -135,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-if bool(DEPLOYED):
+if DEPLOYED == 'True':
 
     STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
     STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)

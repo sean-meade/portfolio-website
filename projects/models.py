@@ -11,8 +11,8 @@ class Project(models.Model):
     description = models.TextField(max_length = 500)
     # TODO: Set up uplaod to and retrievable from cloudinary
     image = CloudinaryField('image')
-    collaboration = models.BooleanField()
-    under_construction = models.BooleanField()
+    collaboration = models.BooleanField(default=False)
+    under_construction = models.BooleanField(default=False)
 
 
 class Tag(models.Model):
