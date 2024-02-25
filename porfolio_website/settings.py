@@ -110,9 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 if DEPLOYED == 'True':
+    print("Using Production contact form settings")
     SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
-    DEFAULT_FROM_EMAIL = "seanpatmeade@gmail.com"
-    NOTIFY_EMAIL = "seanpatmeade@gmail.com"
+    DEFAULT_FROM_EMAIL = "thenerdoutdoorsman@gmail.com"
+    NOTIFY_EMAIL = "thenerdoutdoorsman@gmail.com"
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_HOST = "smtp.sendgrid.net"
     EMAIL_HOST_USER = "apikey"
