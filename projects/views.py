@@ -9,5 +9,5 @@ def projects(request):
     projects = Project.objects.all()
     return render(request, 'projects.html', {"projects": projects})
 
-def contact(request):
-    return render(request, 'contact.html')
+# def contact(request):
+#     return render(request, 'contact.html')
