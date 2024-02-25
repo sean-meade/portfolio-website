@@ -110,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 if DEPLOYED == 'True':
-    print("Using Production contact form settings")
     SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
     DEFAULT_FROM_EMAIL = "thenerdoutdoorsman@gmail.com"
     NOTIFY_EMAIL = "thenerdoutdoorsman@gmail.com"

@@ -8,9 +8,44 @@
 
 {% block content %}
 
-Projects
+<div>
+    <form method="GET" action="{% url 'projects' %}">
+        <div class="">
+            <input class="" type="text" name="q"
+                   placeholder="Search projects">
+            <div class="">
+                <button class="" type="submit">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                </button>
+            </div>
+        </div>
+
+        {% if tags %}
+
+    {% for tag in tags %}
+
+    <div class="tag-checkbox" >
+
+        <input id="checkbox-btn-{{tag.name}}" class="checkbox" type="checkbox" value="{{tag.name}}" name="checks[]" value="{{ forloop.counter0 }}">
+        
+        <label class="label" for="checkbox-btn-{{tag.name}}" class="checkbox" type="checkbox">{{tag.name}}</label>
+          
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+    </form>
+
+    
+
+</div>
 
 <div id="card-container">
+
+    
 
 {% if projects %}
 
