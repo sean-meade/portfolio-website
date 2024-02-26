@@ -26,7 +26,10 @@ def projects(request):
             for tag in tags:
                 project_tags_list = Tag.objects.filter(name=tag)
                 print("project_tags_list: ", project_tags_list)
-                project_tags = project_tags | project_tags_list
+                if project_tags == None:
+                    project_tags = project_tags_list
+                else:
+                    project_tags = project_tags | project_tags_list
                 print("project_tags: ", project_tags)
             projecttags = ProjectTag.objects.filter(tag_id__in=project_tags)
             projects = Project.objects.filter(id__in=project_tags)
