@@ -24,10 +24,11 @@ def projects(request):
             tags = request.GET.getlist('checks[]')
             project_tags = None
             for tag in tags:
-                project_tags_list = ProjectTag.objects.filter(tag_name=tag)
+                project_tags_list = Tag.objects.filter(tag_name=tag)
                 print("project_tags_list: ", project_tags_list)
                 project_tags = project_tags | project_tags_list
                 print("project_tags: ", project_tags)
+            projecttags = ProjectTag.objects.filter(tag_id__in=project_tags)
             projects = Project.objects.filter(id__in=project_tags)
             
             print("projects: ", projects)
