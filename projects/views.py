@@ -21,9 +21,9 @@ def projects(request):
 
         if 'checks[]' in request.GET:
             # TODO: fix so tags work when clicked
-            tags = request.GET.getlist('checks[]')
+            tag_search = request.GET.getlist('checks[]')
             project_tags = None
-            for tag in tags:
+            for tag in tag_search:
                 project_tags_list = Tag.objects.filter(name=tag)
                 print("project_tags_list: ", project_tags_list)
                 if project_tags == None:
@@ -39,7 +39,12 @@ def projects(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                return redirect(reverse('projects'))
+                context = {
+                    'projects': projects,
+                    'search_term': query,
+                    'tags': tags,
+                }
+                render(request, 'projects.html', context)
 
             queries = Q(
                 name__icontains=query) | Q(
@@ -49,7 +54,6 @@ def projects(request):
     context = {
         'projects': projects,
         'search_term': query,
-        'current_tag': tag,
         'tags': tags,
     }
 
