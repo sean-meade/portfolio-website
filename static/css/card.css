@@ -213,9 +213,9 @@
 /* Adapted from https://codepen.io/myackley35/pen/JoPdqE */
 
 .tag-checkbox {
-    margin: 4em auto;
     position: relative;
-    width: 8em;
+    display: inline-block;
+    margin: 2rem 0.5rem;
 }
 
 .checkbox {
@@ -253,6 +253,12 @@
     transition: all 400ms ease;
 }
 
+.search-items {
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+}
+
 /*state change*/
 .checkbox:checked+.label {
     color: rgba(20, 185, 20, 1);
@@ -262,3 +268,42 @@
     background: rgba(55, 185, 55, .2);
     border: 3px solid rgba(100, 185, 100, .8);
 }
+
+.search-box-container {
+    margin: auto;
+    width: 14rem;
+}
+
+/* Style the search field */
+.search-box-container input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  .search-box-container button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  .search-box-container button:hover {
+    background: #0b7dda;
+  }
+  
+  /* Clear floats */
+  .search-box-container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
