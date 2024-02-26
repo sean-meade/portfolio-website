@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from .models import Project, Tag
+from .models import Project, Tag, ProjectTag
 from django.db.models import Q
 import sys
 
@@ -16,17 +16,21 @@ def projects(request):
     tag = None
 
     print(request.GET.getlist('checks[]'))
-    print(request.__dict__, file=sys.stderr)
 
     if request.GET:
 
         if 'checks[]' in request.GET:
             # TODO: fix so tags work when clicked
-            tag = request.GET.getlist('checks[]')
-            projects = Project.objects.filter(projecttag__friendly_name__in=tag)
+            tags = request.GET.getlist('checks[]')
+            project_tags = None
+            for tag in tags:
+                project_tags_list = ProjectTag.objects.filter(tag_id=tag)
+                print("project_tags_list: ", project_tags_list)
+                project_tags = project_tags | project_tags_list
+                print("project_tags: ", project_tags)
+            projects = Project.objects.filter(id__in=project_tags)
+            
             print("projects: ", projects)
-            tag = Tag.objects.filter(friendly_name__in=tag)
-            print("tag: ", tag)
 
         if 'q' in request.GET:
             query = request.GET['q']
