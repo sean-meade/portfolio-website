@@ -4,13 +4,81 @@
 
 Contact
 
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <div class="form-actions">
-      <button type="submit">Send</button>
+
+  <div id="contact-div">
+    <div id="contact-form-container">
+        <form method="post" id="contact-form">
+          {% csrf_token %}
+            <input type="hidden" name="csrfmiddlewaretoken"
+                value="Goy5rKMmi5rycMYxvWocJVsdQvmfdfRj0cuNR84KEBcPQ93yNUrKdLRApWvON7WF">
+            <div>
+                <label for="id_name">Name:</label>
+
+
+
+                <input type="text" name="name" placeholder="Name" required="" id="id_name">
+
+            </div>
+
+            <div>
+                <label for="id_subject">Subject:</label>
+
+
+
+                <input type="text" name="subject" placeholder="Subject" required="" id="id_subject">
+
+            </div>
+
+            <div>
+                <label for="id_email">Email:</label>
+
+
+
+                <input type="text" name="email" placeholder="Your e-mail" maxlength="320" required="" id="id_email">
+
+            </div>
+
+            <div>
+                <label for="id_message">Message:</label>
+
+
+
+                <textarea name="message" cols="40" rows="10" placeholder="Your message" required=""
+                    id="id_message"></textarea>
+
+
+
+            </div>
+            <div class="form-actions">
+                <button type="submit">Send</button>
+            </div>
+        </form>
     </div>
-  </form>
+    
+        <div id="contact-links">
+        <p class="read-more">
+            <img style="vertical-align:middle;" src="web-icon.png">
+            <a href="https://github.com/sean-meade/plan-my-run-v3"
+                style="vertical-align:middle; display:inline;">Github</a>
+        </p>
+        <p class="read-more">
+            <img style="vertical-align:middle;" src="web-icon.png">
+            <a href="https://github.com/sean-meade/plan-my-run-v3"
+                style="vertical-align:middle; display:inline;">Website</a>
+        </p>
+        <p class="read-more">
+            <img style="vertical-align:middle;" src="web-icon.png">
+            <a href="https://github.com/sean-meade/plan-my-run-v3"
+                style="vertical-align:middle; display:inline;">Email</a>
+        </p>
+        <p class="read-more">
+            <img style="vertical-align:middle;" src="web-icon.png">
+            <a href="https://github.com/sean-meade/plan-my-run-v3"
+                style="vertical-align:middle; display:inline;">LinkedIn</a>
+        </p>
+    </div>
+
+</div>
   
 
 {% endblock %}
