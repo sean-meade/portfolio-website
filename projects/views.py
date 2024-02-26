@@ -2,7 +2,6 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from .models import Project, Tag, ProjectTag
 from django.db.models import Q
-import sys
 
 # Create your views here.
 def home(request):
@@ -13,7 +12,6 @@ def projects(request):
     projects = Project.objects.all()
     tags = Tag.objects.all()
     query = None
-    tag = None
 
     print(request.GET.getlist('checks[]'))
 
@@ -21,30 +19,35 @@ def projects(request):
 
         if 'checks[]' in request.GET:
             # TODO: fix so tags work when clicked
-            tag_search = request.GET.getlist('checks[]')
-            project_tags = None
-            for tag in tag_search:
-                project_tags_list = Tag.objects.filter(name=tag)
-                print("project_tags_list: ", project_tags_list)
-                if project_tags == None:
-                    project_tags = project_tags_list
+            tag_ids = request.GET.getlist('checks[]')
+            project_tags_list = None
+            for tag_id in tag_ids:
+                project_tag = Tag.objects.filter(id=tag_id)
+                print("project_tag: ", project_tag)
+                if project_tags_list == None:
+                    project_tags_list = project_tag
                 else:
-                    project_tags = project_tags | project_tags_list
-                print("project_tags: ", project_tags)
-            projecttags = ProjectTag.objects.filter(tag_id__in=project_tags)
-            projects = Project.objects.filter(id__in=project_tags)
+                    project_tags_list = project_tags_list | project_tag
+                print("project_tags_list: ", project_tags_list)
+            
+            projecttags = ProjectTag.objects.filter(tag__in=project_tags_list).values_list('project')
+            print("projecttags: ", projecttags)
+
+            projects = Project.objects.filter(id__in=projecttags)
             
             print("projects: ", projects)
 
         if 'q' in request.GET:
             query = request.GET['q']
-            if not query:
+            print('query: ', query == "")
+            if not query or query == "":
+                print("hits here")
                 context = {
                     'projects': projects,
                     'search_term': query,
                     'tags': tags,
                 }
-                render(request, 'projects.html', context)
+                return render(request, 'projects.html', context)
 
             queries = Q(
                 name__icontains=query) | Q(
