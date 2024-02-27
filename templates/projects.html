@@ -34,7 +34,9 @@
                     <input class="" type="text" name="q" placeholder="Search projects">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
-                
+                <p class="clear-search">
+                    <a href="{% url 'projects' %}" style="vertical-align:middle; display:inline;">Clear Search</a>
+                  </p>
             </div>
         </form>   
 
@@ -49,13 +51,6 @@
 {% for project in projects %}
 
 {% include 'project-card.html' with project=project %}
-
-
-{% comment %} <p>{{ project.name }}</p>
-<p>{{ project.website }}</p>
-<p>{{ project.github }}</p>
-<p>{{ project.description }}</p>
-<img src="{{ project.image.url }}"/> {% endcomment %}
 
 {% endfor %}
 
