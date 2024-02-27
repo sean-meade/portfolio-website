@@ -151,3 +151,9 @@ a:active {
     }
 
 }
+
+.clear-search a {
+    color: #5ad67d;
+    vertical-align: middle;
+    display: inline;
+}
