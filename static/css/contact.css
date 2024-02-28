@@ -1,6 +1,6 @@
-
 #contact-div {
     margin: auto;
+    margin-bottom: 2rem;
     width: 60vw;
     display: flex;
     border-radius: 5px;
@@ -28,19 +28,13 @@
     gap: 2rem;
 }
 
-#contact-links p {
-    width: 6.25vw;
-}
-
 #contact-links a {
     color: #5ad67d;
     vertical-align: middle;
     display: inline;
 }
 
-#contact-links img {
-    vertical-align: middle;
-}
+
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text],
@@ -77,4 +71,85 @@ input[type=submit] {
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
     background-color: #45a049;
+}
+
+#contact-link img {
+    vertical-align:middle;
+}
+
+.contact-button {
+    background-color: #fff;
+    color: #333333;
+    border-radius: .5rem;
+    padding: 0 0.5rem;
+    line-height: 2.5rem;
+    text-decoration: none;
+    float: right;
+    margin-right: 0.5rem;
+}
+
+.contact-link {
+    display: block;
+
+    a {
+        color: var(--color_prime);
+    }
+}
+
+@media screen and (max-width: 65em) {
+    #contact-form-container {
+        width: 40vw;
+    }
+    /* #contact-links {
+        width: 15vw;
+    } */
+}
+
+@media screen and (max-width: 47em) {
+    #contact-form-container {
+        width: 55vw;
+    }
+}
+
+@media screen and (max-width: 41.5em) {
+    #contact-div {
+        flex-direction: column-reverse;
+    }
+
+    #contact-links {
+        flex-direction: row;
+        margin: auto;
+        width: auto;
+    }
+
+    .contact-link img {
+        display:block; 
+        margin: auto;
+    }
+
+    #contact-form-container {
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 35em) {
+    #contact-div {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 26.5em) {
+    #contact-links {
+        flex-wrap:wrap;
+        gap: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 22em) {
+    #contact-links {
+        gap: 1rem 4rem;
+        justify-content:center;
+    }
 }
