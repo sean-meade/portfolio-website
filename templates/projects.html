@@ -10,55 +10,57 @@
 
 <div>
     <form method="GET" action="{% url 'projects' %}">
-            
-            <div class="search-items">
+
+        <div class="search-items">
 
             {% if tags %}
 
-    {% for tag in tags %}
+            {% for tag in tags %}
 
-    <div class="tag-checkbox" >
+            <div class="tag-checkbox">
 
-        <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}" name="checks[]" value="{{ forloop.counter0 }}">
-        
-        <label class="label" for="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox">{{tag.name}}</label>
-          
-    </div>
+                <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}"
+                    name="checks[]" value="{{ forloop.counter0 }}">
 
-    {% endfor %}
+                <label class="label" for="checkbox-btn-{{tag.friendly_name}}" class="checkbox"
+                    type="checkbox">{{tag.name}}</label>
 
-    {% endif %}
             </div>
-            <div class="search-box-container">
-                <div class="search-box">
-                    <input class="" type="text" name="q" placeholder="Search projects">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
-                <p class="clear-search">
-                    <a href="{% url 'projects' %}" style="vertical-align:middle; display:inline;">Clear Search</a>
-                  </p>
+
+            {% endfor %}
+
+            {% endif %}
+        </div>
+        <div class="search-box-container">
+            <div class="search-box">
+                <input class="" type="text" name="q" placeholder="Search projects">
+                <button type="submit"><i class="fa fa-search"></i></button>
             </div>
-        </form>   
+            <p class="clear-search">
+                <a href="{% url 'projects' %}" style="vertical-align:middle; display:inline;">Clear Search</a>
+            </p>
+        </div>
+    </form>
 
 </div>
 
 <div id="card-container">
 
-    
 
-{% if projects %}
 
-{% for project in projects %}
+    {% if projects %}
 
-{% include 'project-card.html' with project=project %}
+    {% for project in projects %}
 
-{% endfor %}
+    {% include 'project-card.html' with project=project %}
 
-{% else %}
+    {% endfor %}
 
-<p>No Projects to display</p>
+    {% else %}
 
-{% endif %}
+    <p>No Projects to display</p>
+
+    {% endif %}
 
 </div>
 

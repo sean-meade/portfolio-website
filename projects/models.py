@@ -14,6 +14,12 @@ class Project(models.Model):
     collaboration = models.BooleanField(default=False)
     under_construction = models.BooleanField(default=False)
 
+    def get_tags(self):
+        projecttags = ProjectTag.objects.filter(project=self)
+        tags = Tag.objects.filter(id__in=projecttags.values_list('tag'))
+
+        return tags
+
 class Tag(models.Model):
     class Meta:
         verbose_name_plural = "Tags"

@@ -1,15 +1,31 @@
-{% load media %}
+{% load static %}
 <a href="{% url 'home' %}">
     <h1 id="logo">Sean Meade</h1>
 </a>
-<div><a href="{% media 'media/Sean_Meade_CV.pdf' %}" download><strong>Download CV</strong></div>
+<!-- <div><a href="{% static 'img/Sean_Meade_CV_SL_Controls_xdpfhc.docx' %}" download><strong>Download CV</strong></div> -->
 <nav>
     <ul id="menu">
+        {% if projects %}
         <li>
             <a href="{% url 'projects' %}" class="active">Projects</a>
         </li>
         <li>
             <a href="{% url 'contact' %}">Contact</a>
         </li>
+        {% elif form %}
+        <li>
+            <a href="{% url 'projects' %}">Projects</a>
+        </li>
+        <li>
+            <a href="{% url 'contact' %}" class="active">Contact</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="{% url 'projects' %}">Projects</a>
+        </li>
+        <li>
+            <a href="{% url 'contact' %}">Contact</a>
+        </li>
+        {% endif %}
     </ul>
 </nav>

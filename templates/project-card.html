@@ -6,27 +6,29 @@
         <div class="meta">
           <div class="photo" style="background-image: url({{ project.image.url }})"></div>
           <ul class="details">
-            <li class="author"><a href="{{project.website}}">{{ project.name }}</a></li>
+            <li class="author"><a href="{{project.website}}" target=”_blank”>{{ project.name }}</a></li>
             <li class="tags">
               <ul>
-                <li><a href="#">Learn</a></li>
-                <li><a href="#">Code</a></li>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
+                {% for tag in project.get_tags %}
+
+              <li><a href="{% url 'projects_tag' tag.id %}">{{tag.name}}</a></li>
+                
+                {% endfor %}
+
               </ul>
             </li>
           </ul>
         </div>
         <div class="description">
-          <h1>{{project.name}}</h1>
+          <h1>{{project.name}}{% if project.collaboration %} - Collaborative Project {% endif %}</h1>
           <p>{{project.description}}</p>
           <p class="read-more">
             <img style="vertical-align:middle;" src="{% static 'img/github-icon.png' %}"/>
-            <a href="{{project.github}}" style="vertical-align:middle; display:inline;">{{project.github}}</a>
+            <a href="{{project.github}}" style="vertical-align:middle; display:inline;" target=”_blank”>{{project.github}}</a>
           </p>
           <p class="read-more">
             <img style="vertical-align:middle;" src="{% static 'img/web-icon.png' %}"/>
-            <a href="{{project.website}}" style="vertical-align:middle; display:inline;">{{project.website}}</a>
+            <a href="{{project.website}}" style="vertical-align:middle; display:inline;" target=”_blank”>{{project.website}}</a>
           </p>
         </div>
       </div>
