@@ -157,12 +157,6 @@ a:active {
 
 }
 
-.clear-search a {
-    color: #5ad67d;
-    vertical-align: middle;
-    display: inline;
-}
-
 @media screen and (max-width: 21.25em) {
     #logo {
         font-size: 3rem;
