@@ -9,6 +9,7 @@ body {
     margin: 0;
     position: relative;
     font-family: 'Merriweather', serif;
+    background: #e2e2e2;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -108,7 +109,7 @@ a:active {
 
 .page-heading {
     text-align: center;
-    margin: 2rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 @media screen and (max-width: 47.5em) {
