@@ -19,6 +19,9 @@ class Project(models.Model):
         tags = Tag.objects.filter(id__in=projecttags.values_list('tag'))
 
         return tags
+    
+    def __str__(self):
+        return self.name
 
 class Tag(models.Model):
     class Meta:
