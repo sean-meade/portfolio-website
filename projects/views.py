@@ -25,7 +25,7 @@ def projects_tag(request, tag_id):
 
 def projects(request):
 
-    projects = Project.objects.all()
+    projects = Project.objects.order_by('?')
     tags = Tag.objects.all()
     query = None
 
