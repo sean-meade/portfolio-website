@@ -21,14 +21,14 @@
         </div>
         <div class="description">
           <h1>{{project.name}}{% if project.collaboration %} - Collaborative Project {% endif %}</h1>
-          <p>{{project.description}}</p>
+          <p class="card-description">{{project.description}}</p>
           <p class="read-more">
             <img style="vertical-align:middle;" src="{% static 'img/github-icon.png' %}"/>
-            <a href="{{project.github}}" style="vertical-align:middle; display:inline;" target=”_blank”>{{project.github}}</a>
+            <a href="{{project.github}}" style="vertical-align:middle; display:inline;" target=”_blank”>Github Repository</a>
           </p>
           <p class="read-more">
             <img style="vertical-align:middle;" src="{% static 'img/web-icon.png' %}"/>
-            <a href="{{project.website}}" style="vertical-align:middle; display:inline;" target=”_blank”>{{project.website}}</a>
+            <a href="{{project.website}}" style="vertical-align:middle; display:inline;" target=”_blank”>Live Website</a>
           </p>
         </div>
       </div>
