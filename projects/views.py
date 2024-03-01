@@ -18,8 +18,8 @@ def projects_tag(request, tag_id):
     tags = Tag.objects.all()
 
     context = {
-                    'projects': projects,
-                    'tags': tags,
+                'projects': projects,
+                'tags': tags,
                 }
     return render(request, 'projects.html', context)
 
@@ -40,11 +40,14 @@ def projects(request):
                 if project_tags_list == None:
                     project_tags_list = project_tag
                 else:
-                    project_tags_list = project_tags_list | project_tag
+                    project_tags_list = project_tags_list & project_tag
             
             projecttags = ProjectTag.objects.filter(tag__in=project_tags_list).values_list('project')
 
             projects = Project.objects.filter(id__in=projecttags)
+        
+        else:
+            tag_ids = None
             
         if 'q' in request.GET:
             query = request.GET['q']
@@ -55,6 +58,7 @@ def projects(request):
                     'projects': projects,
                     'search_term': query,
                     'tags': tags,
+                    'highlight_tags': tag_ids,
                 }
                 return render(request, 'projects.html', context)
 

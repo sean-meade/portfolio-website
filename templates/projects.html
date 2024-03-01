@@ -10,7 +10,7 @@
 {% block content %}
 <h1 class="page-heading">Projects</h1>
 <div id="search-form">
-    <form method="GET" action="{% url 'projects' %}">
+    <form method="GET" action="{% url 'projects' %}" name="searchProjects">
         <div class="search-box-container">
             <div class="search-box">
                 <input class="" type="text" name="q" placeholder="Search projects">
@@ -23,9 +23,17 @@
                 {% for tag in tags %}
     
                 <div class="tag-checkbox">
+
+                    {% if tag.id|slugify in highlight_tags %}
+                    <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}"
+                    name="checks[]" value="{{ forloop.counter0 }}" onclick="SearchTag(this)" checked>
+
+                    {% else %}
     
                     <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}"
-                        name="checks[]" value="{{ forloop.counter0 }}">
+                        name="checks[]" value="{{ forloop.counter0 }}" onclick="SearchTag(this)" >
+
+                        {% endif %}
     
                     <label class="label" for="checkbox-btn-{{tag.friendly_name}}" class="checkbox"
                         type="checkbox">{{tag.name}}</label>
@@ -69,4 +77,8 @@
 
 </div>
 
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
