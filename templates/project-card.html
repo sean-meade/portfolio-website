@@ -11,7 +11,7 @@
               <ul>
                 {% for tag in project.get_tags %}
 
-              <li><a href="{% url 'projects_tag' tag.id %}">{{tag.name}}</a></li>
+              <li><button class="card-tag-button" href="" onclick="SearchTagCard(this)" value="{{tag.id}}">{{tag.name}}</button></li>
                 
                 {% endfor %}
 
