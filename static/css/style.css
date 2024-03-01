@@ -7,7 +7,6 @@
 body {
     padding: 0;
     margin: 0;
-    position: relative;
     font-family: 'Merriweather', serif;
     background: #e2e2e2;
 }
@@ -20,9 +19,12 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
     background-color: #50C878;
-    display: flex;
-    justify-content: space-between;
     line-height: 4.68rem;
+}
+
+#header1 {
+    width: 100%;
+
 }
 
 header a, 
@@ -37,14 +39,25 @@ a:active {
     color: inherit;
 }
 
+#logo-a {
+    display: flex;
+    justify-content: center;
+}
+
 #logo {
     align-self: flex-start;
     font-family: Celtic;
     font-size: 3.75rem;
-    padding-left: 1.25rem;
+    
 }
 
 /* navigation links */
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 #menu {
     font-size: 110%;
@@ -64,6 +77,12 @@ a:active {
 
 .active {
     border-bottom: 1px solid #000;
+}
+
+#cv-download {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 1.3rem;
 }
 
 /* hero image */
