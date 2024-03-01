@@ -57,7 +57,7 @@
 
 .search-box-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -72,13 +72,11 @@
 
 /* Style the submit button */
 .search-box-container button {
-    float: left;
-    padding: 5px 10px;
+    padding: 10px;
     background: #2196F3;
     color: white;
     font-size: 17px;
     border: 1px solid grey;
-    border-radius: 0.5rem;
     border-left: none;
     /* Prevent double borders */
     cursor: pointer;
@@ -99,8 +97,14 @@
     color: #114968;
     vertical-align: middle;
     display: inline;
+    float: right;
+    padding-top: 0.5rem;
 }
 
 .search-buttons {
     padding-top: 1.25rem;
+}
+
+.search-box {
+    margin: 2rem auto;
 }

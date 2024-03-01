@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 /* heading and logo */
 
 header {
-    background-color: #1f83bc;
+    background-color: #1b70a0;
     line-height: 4.68rem;
 }
 
@@ -49,7 +49,7 @@ a:active {
     align-self: flex-start;
     font-family: Celtic;
     font-size: 3.75rem;
-    
+    margin-top: 0.5rem;
 }
 
 /* navigation links */
@@ -84,6 +84,7 @@ nav {
     text-align: center;
     text-decoration: underline;
     font-size: 1.3rem;
+    
 }
 
 /* hero image */
@@ -181,5 +182,28 @@ nav {
 @media screen and (max-width: 21.25em) {
     #logo {
         font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    nav {
+        position: relative;
+    }
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    #menu li:last-child {
+        padding: 0;
+    }
+
+    #menu {
+        padding: 0;
+    }
+    
+    #cv-download {
+        line-height: 2rem;
+        padding-bottom: 0.75rem;
     }
 }

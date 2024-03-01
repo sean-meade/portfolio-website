@@ -12,45 +12,43 @@
 <div id="search-form">
     <form method="GET" action="{% url 'projects' %}" name="searchProjects">
         <div class="search-box-container">
-            <div class="search-box">
-                <input class="" type="text" name="q" placeholder="Search projects">
-                
-            </div>
+
             <div class="search-items">
 
                 {% if tags %}
-    
+
                 {% for tag in tags %}
-    
+
                 <div class="tag-checkbox">
 
                     {% if tag.id|slugify in highlight_tags %}
                     <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}"
-                    name="checks[]" value="{{ forloop.counter0 }}" onclick="SearchTag(this)" checked>
+                        name="checks[]" value="{{ forloop.counter0 }}" onclick="SearchTag(this)" checked>
 
                     {% else %}
-    
-                    <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}"
-                        name="checks[]" value="{{ forloop.counter0 }}" onclick="SearchTag(this)" >
 
-                        {% endif %}
-    
+                    <input id="checkbox-btn-{{tag.friendly_name}}" class="checkbox" type="checkbox" value="{{tag.id}}"
+                        name="checks[]" value="{{ forloop.counter0 }}" onclick="SearchTag(this)">
+
+                    {% endif %}
+
                     <label class="label" for="checkbox-btn-{{tag.friendly_name}}" class="checkbox"
                         type="checkbox">{{tag.name}}</label>
-    
+
                 </div>
-    
+
                 {% endfor %}
-    
+
                 {% endif %}
             </div>
-            <div class="search-buttons">
-                <button type="submit">Search</button>
+            <div class="search-box">
+                <input class="" type="text" name="q" placeholder="Search projects">
+                <button type="submit"><i class="fa fa-search"></i></button>
                 <p class="clear-search">
                     <a href="{% url 'projects' %}" style="vertical-align:middle; display:inline;">Clear Search</a>
                 </p>
             </div>
-            
+
         </div>
 
     </form>
