@@ -8,7 +8,8 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Merriweather', serif;
-    background: #e2e2e2;
+    background: #50C878;
+    color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -18,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 /* heading and logo */
 
 header {
-    background-color: #50C878;
+    background-color: #1f83bc;
     line-height: 4.68rem;
 }
 
