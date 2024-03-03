@@ -2,7 +2,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import reverse
 from django.views.generic import TemplateView, FormView
-
+from django.contrib import messages
 from .forms import ContactForm
 
 
@@ -15,6 +15,7 @@ class ContactView(FormView):
     template_name = "contact.html"
 
     def get_success_url(self):
+        messages.success(self.request,"message sent!")
         return reverse("contact")
 
     def form_valid(self, form):

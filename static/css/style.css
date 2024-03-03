@@ -8,7 +8,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Merriweather', serif;
-    background: #50C878;
+    background: rgb(132, 216, 160);
     color: #fff;
 }
 
@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 /* heading and logo */
 
 header {
-    background-color: #1b70a0;
+    background-color: #114968;
     line-height: 4.68rem;
 }
 
@@ -85,6 +85,20 @@ nav {
     text-decoration: underline;
     font-size: 1.3rem;
     
+}
+
+/* Messages container */
+
+.messages {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    text-align: center;
+    line-height: 50px;
+    width: 8rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    color: #000;
 }
 
 /* hero image */

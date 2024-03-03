@@ -58,6 +58,14 @@
         {% include 'header.html' %}
         
     </header>
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
    
 
     {% block page_header %}
@@ -69,6 +77,15 @@
     {% block extra_js_footer %}
 
     {% endblock %}
+    <script>
+    
+    var message_container = document.getElementsByClassName("messages");
+
+    setTimeout(function(){ 
+    message_container[0].style.display = "none"; 
+    }, 3000);
+
+    </script>
 </body>
 
 </html>
