@@ -5,7 +5,7 @@
     display: flex;
     border-radius: 5px;
     background-color: #fff;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
 }
 
 #contact-form-container,
@@ -28,10 +28,11 @@
     gap: 2rem;
 }
 
-#contact-links a {
+#contact-links a, #contact-links button {
     color: #5ad67d;
     vertical-align: middle;
     display: inline;
+    text-decoration: underline;
 }
 
 
@@ -79,20 +80,39 @@ input[type=submit]:hover {
 }
 
 .contact-button {
-    background-color: #fff;
-    color: #333333;
+    background-color: #114968;
+    color: #fff;
     border-radius: .5rem;
     padding: 0 0.5rem;
-    line-height: 2.5rem;
+    line-height: 2rem;
     text-decoration: none;
     float: right;
     margin-right: 0.5rem;
+    font-size: large;
+    
+}
+
+#email-icon {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    text-decoration: underline;
+}
+
+#text-copied {
+    background: #fff;
+    display: none;
+    color: #000;
 }
 
 .contact-link {
     display: block;
 
-    a {
+    a, button {
         color: var(--color_prime);
     }
 }
@@ -118,6 +138,13 @@ input[type=submit]:hover {
         flex-direction: row;
         margin: auto;
         width: auto;
+        padding-top: 2rem;
+    }
+    
+    #text-copied {
+        position: absolute;
+        float: right;
+        right: 20vw;
     }
 
     .contact-link img {

@@ -7,12 +7,11 @@
 
 {% block content %}
 <h1 class="page-heading">Contact</h1>
-  <div id="contact-div">
-    
-    <div id="contact-form-container" >
-        <br>
+<div id="contact-div">
+
+    <div id="contact-form-container">
         <form method="post" id="contact-form">
-          {% csrf_token %}
+            {% csrf_token %}
             <div>
                 <label for="id_name">Name:</label>
 
@@ -41,35 +40,55 @@
                     id="id_message"></textarea>
 
             </div>
-                <button class="contact-button" type="submit">Send</button>
+            <button class="contact-button" type="submit">Send</button>
         </form>
     </div>
-    
-        <div id="contact-links">
+
+    <div id="contact-links">
         <p class="contact-link">
-            <img src="{% static 'img/github-icon.png' %}">
-            <a href="https://github.com/sean-meade/"
-                style="vertical-align:middle; display:inline;">Github</a>
+            <img src="{% static 'img/github-icon.png' %}"/>
+            <a href="https://github.com/sean-meade/" style="vertical-align:middle; display:inline;">Github</a>
         </p>
         <p class="contact-link">
-            <img src="{% static 'img/web-icon.png' %}">
-            <a href="https://github.com/sean-meade/plan-my-run-v3"
-                style="vertical-align:middle; display:inline;">Website</a>
-        </p>
-        <p class="contact-link">
-            <img src="{% static 'img/emails.png' %}">
-            <a href="https://github.com/sean-meade/plan-my-run-v3"
-                style="vertical-align:middle; display:inline;">Email</a>
-        </p>
-        <p class="contact-link">
-            <img src="{% static 'img/linkedin.png' %}">
-            <a href="https://github.com/sean-meade/plan-my-run-v3"
+            <img src="{% static 'img/linkedin.png' %}"/>
+            <a href="https://www.linkedin.com/in/seanmeadetech/"
                 style="vertical-align:middle; display:inline;">LinkedIn</a>
         </p>
-        
+        <p class="contact-link">
+            <img src="{% static 'img/emails.png' %}"/>
+            <button onclick="copyToC()" id="email-icon" value="seanpatmeade@gmail.com">Email</button>
+        <span id="text-copied">Email copied!</span>
+        </p>
+
     </div>
 
 </div>
-  
+
+<script>
+
+    function copyToC() {
+        var copyText = document.getElementById("email-icon").value;
+        console.log(copyText);
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText);
+        var textCopied = document.getElementById('text-copied');
+        console.log(textCopied);
+        textCopied.style.display = 'block';
+
+        setTimeout(function () {
+            textCopied.style.display = 'none';
+        }, 2000);
+    }
+
+    var message_container = document.getElementsByClassName("messages");
+
+    if (message_container.length > 0) {
+        setTimeout(function () {
+            message_container[0].style.display = "none";
+        }, 3000);
+    }
+
+</script>
 
 {% endblock %}

@@ -168,6 +168,7 @@
 }
 
 .card-description {
+    text-align:justify;
     max-width: 60vw;
 }
 
@@ -176,19 +177,10 @@
     position:absolute;
     top: 45%;
     left: 20%;
-    /* Safari */
-    -webkit-transform: rotate(-35deg);
-    /* Firefox */
-    -moz-transform: rotate(-35deg);
-    /* IE */
-    -ms-transform: rotate(-35deg);
-    /* Opera */
-    -o-transform: rotate(-35deg);
-    /* Standard */
-    transform: rotate(-35deg);
+    width: 60%;
     font-size:x-large;
     color: yellow;
-    background-color: rgba(249, 246, 56, 0.5);
+    text-align: center;
 }
 
 @media (min-width: 640px) {
@@ -232,5 +224,11 @@
 
     .blog-card.alt .details {
         padding-left: 25px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .card-description {
+        max-width: none;
     }
 }
