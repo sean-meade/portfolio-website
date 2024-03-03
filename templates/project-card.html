@@ -28,7 +28,11 @@
           </p>
           <p class="read-more">
             <img style="vertical-align:middle;" src="{% static 'img/web-icon.png' %}"/>
-            <a href="{{project.website}}" style="vertical-align:middle; display:inline;" target=”_blank”>Live Website</a>
+            {% if 'A Jupyter Notebook' in project.description %}
+              <a href="{{project.website}}" style="vertical-align:middle; display:inline;" target=”_blank”>Notebook</a>
+            {% else %}
+              <a href="{{project.website}}" style="vertical-align:middle; display:inline;" target=”_blank”>Live Website</a>
+            {% endif %}
           </p>
         </div>
       </div>
