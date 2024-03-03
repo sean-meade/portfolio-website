@@ -172,6 +172,26 @@
     max-width: 60vw;
 }
 
+.under-construction {
+    /* padding-top: 3rem; */
+    position:absolute;
+    top: 45%;
+    left: 20%;
+    /* Safari */
+    -webkit-transform: rotate(-35deg);
+    /* Firefox */
+    -moz-transform: rotate(-35deg);
+    /* IE */
+    -ms-transform: rotate(-35deg);
+    /* Opera */
+    -o-transform: rotate(-35deg);
+    /* Standard */
+    transform: rotate(-35deg);
+    font-size:x-large;
+    color: yellow;
+    background-color: rgba(249, 246, 56, 0.5);
+}
+
 @media (min-width: 640px) {
     .blog-card {
         flex-direction: row;

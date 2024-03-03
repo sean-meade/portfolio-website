@@ -4,8 +4,9 @@
 
     <div class="blog-card">
         <div class="meta">
-          <div class="photo" style="background-image: url({{ project.image.url }})"></div>
-          <ul class="details">
+          <div class="photo" style="background-image: url({{ project.image.url }})">
+          </div>
+          <ul class="details" {% if project.under_construction %}style="left:0;"{% endif %}>
             <li class="author"><a href="{{project.website}}" target=”_blank”>{{ project.name }}</a></li>
             <li class="tags">
               <ul>
@@ -17,7 +18,11 @@
 
               </ul>
             </li>
+            {% if project.under_construction %}
+              <li class="under-construction">Under Construction</li>
+            {% endif %}
           </ul>
+          
         </div>
         <div class="description">
           <h1>{{project.name}}{% if project.collaboration %} - Collaborative Project {% endif %}</h1>
