@@ -11,10 +11,8 @@
     
     <div id="contact-form-container" >
         <br>
-        <form method="post" id="contact-form" action="{% url 'contact' %}">
+        <form method="post" id="contact-form">
           {% csrf_token %}
-            <input type="hidden" name="csrfmiddlewaretoken"
-                value="Goy5rKMmi5rycMYxvWocJVsdQvmfdfRj0cuNR84KEBcPQ93yNUrKdLRApWvON7WF">
             <div>
                 <label for="id_name">Name:</label>
 
