@@ -20,7 +20,7 @@ DEPLOYED = os.environ.get('DEPLOYED')
 #else:
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['seanmeade.ie','seanmeade.ie/','www.seanmeade.ie','www.seanmeade.ie/']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
