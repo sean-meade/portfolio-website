@@ -15,10 +15,10 @@ DEPLOYED = os.environ.get('DEPLOYED')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if DEPLOYED == 'True':
-    DEBUG = False
-else:
-    DEBUG = True
+#if DEPLOYED == 'True':
+#    DEBUG = False
+#else:
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
