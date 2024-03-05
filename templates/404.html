@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/contact.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/404.css' %}">
 {% endblock %}
 
 {% block content %}
+<h3 class="page-heading">Opps, John couldn't find what you're looking for...</h3>
 
-<div><img src="{% static 'img/travolta.gif' %}"></div>
+<div id="conatiner404"><img src="{% static 'img/travolta.gif' %}"></div>
 
 {% endblock %}
