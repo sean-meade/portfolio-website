@@ -1,5 +1,4 @@
-from django.shortcuts import redirect, render
-from django.urls import reverse
+from django.shortcuts import render
 from .models import Project, Tag, ProjectTag
 from django.db.models import Q
 
@@ -74,3 +73,4 @@ def projects(request):
     }
 
     return render(request, 'projects.html', context)
+
