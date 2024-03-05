@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/404.css' %}">
+{% endblock %}
+
+{% block content %}
+<h3 class="page-heading">This is awkward, we seem to be having an internal problem...</h3>
+
+<div id="conatiner404"><img src="{% static 'img/homer-simpson-homer.gif' %}"></div>
+
+{% endblock %}
