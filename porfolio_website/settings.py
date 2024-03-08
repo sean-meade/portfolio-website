@@ -20,7 +20,7 @@ if DEPLOYED == 'True':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['seanmeade.ie','seanmeade.ie/','www.seanmeade.ie','www.seanmeade.ie/']
+ALLOWED_HOSTS = ['seanmeade.ie','seanmeade.ie/','www.seanmeade.ie','www.seanmeade.ie/', '127.0.0.1']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
