@@ -42,7 +42,11 @@
                 {% endif %}
             </div>
             <div class="search-box">
+                {% if search_term == None %}
                 <input class="" type="text" name="q" placeholder="Search projects">
+                {% else %}
+                <input class="" type="text" name="q" value="{{ search_term }}">
+                {% endif %}
                 <button type="submit"><i class="fa fa-search"></i></button>
                 <p class="clear-search">
                     <a href="{% url 'projects' %}" style="vertical-align:middle; display:inline;">Clear Search</a>
