@@ -1,3 +1,4 @@
+from collections import Counter
 from django.shortcuts import render
 from .models import Project, Tag, ProjectTag
 from django.db.models import Q
@@ -34,12 +35,23 @@ def projects(request):
         if 'checks[]' in request.GET:
             # TODO: fix so tags work when clicked
             tag_ids = request.GET.getlist('checks[]')
-            project_tags_list = None
-            project_tags = Tag.objects.filter(id__in=tag_ids)
-            
-            projecttags = ProjectTag.objects.filter(tag__in=project_tags)
-
-            projects = Project.objects.filter(id__in=projecttags)
+            print("tag_ids: ", tag_ids)
+            if len(tag_ids) > 1:
+                project_tags = Tag.objects.filter(id__in=tag_ids)
+                print("project_tags: ", project_tags)
+                
+                projectids = ProjectTag.objects.filter(tag__in=project_tags).values_list('project', flat=True)
+                print("projectids: ", projectids)
+                counts = Counter(list(projectids))
+                projects_searched = [item for item, count in counts.items() if count >= len(tag_ids)]
+                projects = Project.objects.filter(id__in=projects_searched)
+            else:
+                project_tags = Tag.objects.filter(id__in=tag_ids)
+                print("project_tags: ", project_tags)
+                
+                projectids = ProjectTag.objects.filter(tag__in=project_tags).values_list('project')
+                print("projectids: ", projectids)
+                projects = Project.objects.filter(id__in=projectids)
         
         else:
             tag_ids = None
