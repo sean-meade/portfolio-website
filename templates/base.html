@@ -88,15 +88,19 @@
     {% endblock %}
     <script>
         window.intercomSettings = {
-            api_base: "https://api-iam.intercom.io",
-            app_id: "z7b36uhl",
-            user_id: "{{ request.user.id }}",
-            name: "{{ request.user.get_full_name|escapejs }}",
-            email: "{{ request.user.email|escapejs }}",
-            created_at: "{{ request.user.date_joined|date:'U' }}"
+          app_id: "z7b36uhl",
+          user_id: "{{ request.user.id }}",
+          name: "{{ request.user.get_full_name|escapejs }}",
+          email: "{{ request.user.email|escapejs }}",
+          created_at: "{{ request.user.date_joined|date:'U' }}",
+          user_hash: "{{ user_hash }}"
         };
       </script>
-      
+
+      <script>
+        // Example: Update after user logs in via AJAX or SPA behavior
+        window.Intercom("update");
+      </script>
       
       <script>
         // We pre-filled your app ID in the widget URL: 'https://widget.intercom.io/widget/z7b36uhl'
